@@ -22,10 +22,7 @@ public class CSVFileHandler {
 	
 	public static ArrayList<Map<String, String>> read(String path) throws IOException {
 		Reader reader = new FileReader(path);
-		Iterable<CSVRecord> records = CSVFormat
-										.RFC4180
-										.withFirstRecordAsHeader()
-										.parse(reader);
+		Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(reader);
 		ArrayList<Map<String, String>> recordsMap = new ArrayList<Map<String, String>>();
 		for (CSVRecord record : records) {
 			recordsMap.add(record.toMap());
